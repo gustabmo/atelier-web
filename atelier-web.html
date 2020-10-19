@@ -1,0 +1,52 @@
+<html>
+
+<head>
+	<style type="text/css">
+		.myDiv {
+		  border: 5px outset red;
+		  background-color: lightblue;
+		  text-align: center;
+		}
+		.oneControl {
+			border: 4px;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id="controls" class="myDiv">
+	<div>
+		<div id="filename" class="onecontrol"> filename </div>
+		<button id="saveas" class="onecontrol"> Save As ... </button>
+		<button id="load" class="onecontrol"> Load ... </button>
+		<div id="modified" class="onecontrol"> modified </div>
+		<button id="saveandrun" class="onecontrol"> Save & Run </button>
+	</div>
+
+	<div id="text">
+		<textarea id="edit">
+			Texto sendo editado
+		</textarea>
+	</div>
+</div>
+
+<div id="show" class="myDiv">
+	HTML testado
+</div>
+
+<script type="text/javascript">
+	document.getElementById ( "edit" ).addEventListener ( 
+		"click", 
+		( ta ) => {
+			console.log ( 'evento edit onchange' );
+			document.getElementById('show').innerHTML = document.getElementById('edit').value;
+		} 
+	);
+
+	console.log ( 'end init' );
+</script>
+
+</body>
+</html>
