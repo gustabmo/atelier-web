@@ -1,0 +1,32 @@
+<title>
+  Droite et Gauche - Gustavo
+</title>
+
+<button onclick="choisirCote('gauche');">Choisir côté gauche</button>
+<p>
+<button onclick="choisirCote('droit');">Choisir côté droit</button>
+<p>
+<button onclick="choisirCoteAleatoire();">Choisir côté aléatoire</button>
+
+<p>
+ Le côté choisi est le : <span id="montrer"></span>
+</p>
+
+<script>
+  function choisirCote ( cote ) {
+    document.getElementById("montrer").innerHTML = cote;
+  }
+
+  function choisirCoteAleatoire () {
+    document.getElementById("montrer").innerHTML = coteAleatoire();
+  }
+
+  function coteAleatoire () {
+    r = Math.random();
+    if (r <= 0.5) {
+      return "gauche";
+    } else {
+      return "droit";
+    }
+  }
+</script>

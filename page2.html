@@ -1,0 +1,27 @@
+<title>Decouverte de HTML</title>
+
+Hello world!
+
+<h1>Gran titre</h1>
+
+<h2>Titre moyen</h2>
+
+<h3>Petit titre</h3>
+
+<p>Un paragraphe</p>
+
+<p>Un paragraphe avec du texte <b>en gras</b> et <i>en italique</i></p>
+
+<button>Un boutton qui ne fait rien...</button>
+
+<p id="monparagraphe" style="color:orange">Un paragraphe avec "id" et dont sa couleur sera modifié par les bouttons suivants</p>
+
+<button onclick="clickBouton();">Rouge</button>
+<button onclick="clickBouton();">Vert</button>
+<button onclick="clickBouton();">Bleue</button>
+
+<script>
+	function clickBouton() {
+		document.getElementById('monparagraphe').setAttribute('style','color:blue');		
+	}
+</script>

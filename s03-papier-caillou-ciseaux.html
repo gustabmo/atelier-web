@@ -1,0 +1,83 @@
+<title>
+  Papier Caillou Ciseaux - Gustavo
+</title>
+
+<button onclick="clickChoix(this);">Papier</button>
+<button onclick="clickChoix(this);">Caillou</button>
+<button onclick="clickChoix(this);">Ciseaux</button>
+
+<p>
+
+Mon choix: <span id="monChoix"> </span>
+
+<p>
+
+Choix de l'ordinateur: <span id="ordiChoix"> </span>
+
+<p>
+
+Vainqueur: <span id="vainqueur"> </span>
+
+<p>
+
+Score:
+<br> Moi: <span id="scoreMoi"></span>
+<br> Ordi: <span id="scoreOrdi"></span>
+<br> Egalite: <span id="scoreEgalite"></span>
+
+<script>
+	scoreMoi = 0;
+	scoreOrdi = 0;
+	scoreEgalite = 0;
+
+	function choixAleatoire() {
+		r = Math.random();
+		if (r <= 0.33333) {
+			return "Papier";
+		} else {
+			if (r <= 0.66666) {
+				return "Caillou";
+			} else {
+				return "Ciseaux";
+			}
+		}
+	}
+
+	function clickChoix(leButton) {
+		monChoix = leButton.innerHTML;
+		document.getElementById("monChoix").innerHTML = monChoix;
+
+		choixOrdi = choixAleatoire();
+		document.getElementById("ordiChoix").innerHTML = choixOrdi;
+
+		if (monChoix==choixOrdi) {
+			vainqueur = "egalite";
+			couleur = "black";
+			scoreEgalite++;
+		} else {
+			if (
+				(monChoix=="Caillou" && choixOrdi=="Papier")
+				||
+				(monChoix=="Papier" && choixOrdi=="Ciseaux")
+				||
+				(monChoix=="Ciseaux" && choixOrdi=="Caillou")
+			) {
+				vainqueur = "Ordi";
+				couleur = "red";
+				scoreOrdi++;
+			} else {
+				vainqueur = "Moi !!!!!!!!!!!!!!!!!!!!!!";
+				couleur = "blue";
+				scoreMoi++;
+			}
+		}
+
+		montreVainqueur = document.getElementById("vainqueur");
+		montreVainqueur.innerHTML = vainqueur;
+		montreVainqueur.setAttribute ( 'style', 'color:'+couleur+'; font-size:25' );
+
+		document.getElementById("scoreMoi").innerHTML = scoreMoi;
+		document.getElementById("scoreOrdi").innerHTML = scoreOrdi;
+		document.getElementById("scoreEgalite").innerHTML = scoreEgalite;
+	}
+</script>

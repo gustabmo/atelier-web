@@ -1,0 +1,107 @@
+<title>
+  Papier Caillou Ciseaux - Gustavo
+</title>
+
+
+<button onclick="clickChoix(this);">Papier</button>
+<br>
+<button onclick="clickChoix(this);">Caillou</button>
+<br>
+<button onclick="clickChoix(this);">Ciseaux</button>
+
+<p>
+<img id="monChoix">
+<img id="ordiChoix"
+  style="transform: scaleX(-1);"
+>
+</p>
+
+<p>
+Vainqueur: <span id="vainqueur"> </span>
+</p>
+
+<p>
+<div id="divScore" style="text-align:center">
+Score:
+<br>
+Moi: <span id="scoreMoi"></span>
+| Egalite: <span id="scoreEgalite"></span>
+| Ordi: <span id="scoreOrdi"></span>
+<div>
+</p>
+
+<script>
+
+scoreMoi = 0;
+scoreOrdi = 0;
+scoreEgalite = 0;
+
+rodaScoreScaleX = 1;
+rodaScoreDirecao = -0.05;
+
+function RodaScore() {
+    if (((rodaScoreScaleX + rodaScoreDirecao) > 1) || ((rodaScoreScaleX + rodaScoreDirecao) < -1)) {
+        rodaScoreDirecao = -rodaScoreDirecao;
+    }
+    rodaScoreScaleX = rodaScoreScaleX + rodaScoreDirecao;
+    divScore.setAttribute ( "style", 
+        "text-align:center;"
+        +" transform:ScaleX("+rodaScoreScaleX+");" 
+    );
+}
+
+// window.setInterval ( RodaScore, 50 ); // fait le score tourner
+
+function choixAleatoire() {
+    r = Math.random();
+    if (r <= 0.33333) {
+        return "Papier";
+    } else {
+        if (r <= 0.66666) {
+            return "Caillou";
+        } else {
+            return "Ciseaux";
+        }
+    }
+}
+
+function clickChoix(leButton) {
+    monChoix = leButton.innerHTML;
+    document.getElementById("monChoix")
+    .setAttribute ( 'src', monChoix+'.jpg' );
+
+    choixOrdi = choixAleatoire();
+    document.getElementById("ordiChoix")
+    .setAttribute ( 'src', choixOrdi+'.jpg' );
+
+    if (monChoix==choixOrdi) {
+        vainqueur = "egalite";
+        couleur = "black";
+        scoreEgalite++;
+    } else {
+        if (
+            (monChoix=="Caillou" && choixOrdi=="Papier")
+            ||
+            (monChoix=="Papier" && choixOrdi=="Ciseaux")
+            ||
+            (monChoix=="Ciseaux" && choixOrdi=="Caillou")
+        ) {
+            vainqueur = "Ordinateur";
+            couleur = "red";
+            scoreOrdi++;
+        } else {
+            vainqueur = "Moi !!!!!!!!!!!!!!!!!!!!!!";
+            couleur = "blue";
+            scoreMoi++;
+        }
+    }
+
+    montreVainqueur = document.getElementById("vainqueur");
+    montreVainqueur.innerHTML = vainqueur;
+    montreVainqueur.setAttribute ( 'style', 'color:'+couleur+'; font-size:25' );
+
+    document.getElementById("scoreMoi").innerHTML = scoreMoi;
+    document.getElementById("scoreOrdi").innerHTML = scoreOrdi;
+    document.getElementById("scoreEgalite").innerHTML = scoreEgalite;
+}
+</script>

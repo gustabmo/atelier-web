@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>Pile our Face</title>
+</head>
+
+<body>
+	
+<h1>Je gagne si les deux pièces donnent la même face</h1>
+
+<script>
+function choixAleatoire() {
+	aleatoire = Math.random();    
+    if (aleatoire <0.5) {
+    	return "Pile";
+    }
+    return "Face"
+ }
+
+
+function jaiClique() {
+ 	piece_1 = document.getElementById("P1");
+ 	piece_2 = document.getElementById("P2");
+    resultat = document.getElementById("resultat");
+	jeux=document.getElementById("jeux");
+	victoires=document.getElementById("victoires");
+	jeux.innerHTML=Number(jeux.innerHTML)+1 ;
+	piece_1.innerHTML = choixAleatoire(); 
+	piece_2.innerHTML = choixAleatoire();
+	if (piece_1.innerHTML==piece_2.innerHTML) {
+		resultat.innerHTML="J'ai gagné !!" ;
+		victoires.innerHTML=Number(victoires.innerHTML)+1
+	} else {
+		resultat.innerHTML="J'ai perdu !!" ;				
+	}
+ }
+
+</script>
+
+<button onclick="jaiClique()">Lancer les deux pièces</button>
+
+<p>
+
+Première pièce : <span id="P1"></span>
+
+<p>
+
+Deuxième pièce : <span id="P2"></span>
+
+<p>
+Résultat : <span id="resultat"></span>
+
+<p> Nombre total de jeux : <span id="jeux"></span>
+
+<p> Nombre de victoires : <span id="victoires"></span>
+
+</body>
+</html>

@@ -2,50 +2,64 @@
 
 <head>
 	<style type="text/css">
-		.myDiv {
-		  border: 5px outset red;
-		  background-color: lightblue;
-		  text-align: center;
+		#divEdit {
+			position: fixed;
+			left: 0;
+			right: 50%;
+			top: 0;
+			bottom: 0;
+			overflow: hidden;
+		  	border: 5px outset blue;
+		  	background-color: lightblue;
+		  	text-align: center;
 		}
-		.oneControl {
-			border: 4px;
-			position: relative;
+		#taEdit {
+			float: left;
+			width: 100%;
+			height: 95%;
+			border: 4px outset cyan;
+		}
+		#divShow {
+			position: fixed;
+			left: 50%;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			overflow: auto;
+		  	border: 5px outset green;
 		}
 	</style>
 </head>
 
 <body>
 
-<div id="controls" class="myDiv">
+<div id="divEdit">
 	<div>
-		<div id="filename" class="onecontrol"> filename </div>
+		<span id="filename" class="onecontrol"> nom du fichier </span>
 		<button id="saveas" class="onecontrol"> Save As ... </button>
 		<button id="load" class="onecontrol"> Load ... </button>
-		<div id="modified" class="onecontrol"> modified </div>
+		<span id="modified" class="onecontrol"> modified! </span>
 		<button id="saveandrun" class="onecontrol"> Save & Run </button>
 	</div>
 
-	<div id="text">
-		<textarea id="edit">
-			Texto sendo editado
-		</textarea>
-	</div>
+	<textarea id="taEdit">
+		HTML code
+	</textarea>
 </div>
 
-<div id="show" class="myDiv">
-	HTML testado
-</div>
+<iframe id="divShow" class="myDiv">
+	HTML test
+</iframe>
 
 <script type="text/javascript">
-	document.getElementById ( "edit" ).addEventListener ( 
+	document.getElementById ( "saveandrun" ).addEventListener ( 
 		"click", 
-		( ta ) => {
-			console.log ( 'evento edit onchange' );
-			document.getElementById('show').innerHTML = document.getElementById('edit').value;
+		() => {
+			document.getElementById('divShow').innerHTML = 
+				document.getElementById('taEdit').value
+			;
 		} 
 	);
-
-	console.log ( 'end init' );
 </script>
 
 </body>

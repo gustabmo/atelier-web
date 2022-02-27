@@ -1,0 +1,66 @@
+<meta charset="UTF-8">
+<title>
+	GA - Géométrie Analytique
+</title>
+
+<p>
+Tappez l'équation <i>y = ....</i> (en fonction de x), que vous voulez tracer
+</p>
+
+<p>
+y = <input type="text" id="fonction" size=30 value="x+2"></input>
+</p>
+
+<p>
+	L'équation sera tracée pour les x entre 
+	<input type="text" id="minX" size=2 value="-10"></input>
+	et
+	<input type="text" id="maxX" size=2 value="+10"></input>
+</p>
+
+<p>
+<button onclick="tracer();">Tracer l'équation</button>
+</p>
+
+<canvas id="canvasXY" width=400 height=400> </canvas>
+
+
+
+<script>
+
+function calculerY ( x ) {
+	return x+2;
+}
+
+function tracer() {
+	minX = Number ( document.getElementById("minX").getAttribute("value") );
+	maxX = Number ( document.getElementById("minX").getAttribute("value") );
+	stepX = round ( (maxX - minX) / 20 );
+
+	minY = 0;
+	maxY = 0;
+
+	// calculer le résultat de Y le plus petit et le plus grand, pour savoir l'échèlle
+	x = minY;
+	while (x <= maxX) {
+		y = calculerY ( x );
+		if (y < minY) minY = y;
+		if (y > maxY) maxY = y;
+	}
+
+	repere = document.getElementById("canvasxy").getcontext("2d");
+	repere.translate ( minX, minY );
+
+	ctx = canvasxy.getContext("2d");
+		canvasBode.width=screenX;
+		canvasBode.height=screenY;
+		let ctx=canvasBode.getContext("2d");
+		ctx.fillStyle = 'black';
+		ctx.fillRect(0,0,screenX,screenY);
+		drawScreen(ctx);
+	}	
+	console.log ( "bodeMain end" );
+
+}
+
+</script>
