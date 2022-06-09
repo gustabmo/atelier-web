@@ -1,0 +1,121 @@
+<!╌ 
+le deuxieme jeu proposé, pour ceux qui terminent le pierre-caillou-ciseaux
+╌>
+
+
+<table>
+    <tr>
+        <td>
+            <img id="img-1-1" src="b.jpg">
+            <br>
+            <button onclick="changer('1-1','b');">b</button>
+            <button onclick="changer('1-1','X');">X</button>
+            <button onclick="changer('1-1','O');">O</button>
+        </td>
+        <td>
+            <img id="img-2-1" src="b.jpg">
+            <br>
+            <button onclick="changer('2-1','b');">b</button>
+            <button onclick="changer('2-1','X');">X</button>
+            <button onclick="changer('2-1','O');">O</button>
+        </td>
+        <td>
+            <img id="img-3-1" src="b.jpg">
+            <br>
+            <button onclick="changer('3-1','b');">b</button>
+            <button onclick="changer('3-1','X');">X</button>
+            <button onclick="changer('3-1','O');">O</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img id="img-1-2" src="b.jpg">
+            <br>
+            <button onclick="changer('1-2','b');">b</button>
+            <button onclick="changer('1-2','X');">X</button>
+            <button onclick="changer('1-2','O');">O</button>
+        </td>
+        <td>
+            <img id="img-2-2" src="b.jpg">
+            <br>
+            <button onclick="changer('2-2','b');">b</button>
+            <button onclick="changer('2-2','X');">X</button>
+            <button onclick="changer('2-2','O');">O</button>
+        </td>
+        <td>
+            <img id="img-3-2" src="b.jpg">
+            <br>
+            <button onclick="changer('3-2','b');">b</button>
+            <button onclick="changer('3-2','X');">X</button>
+            <button onclick="changer('3-2','O');">O</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img id="img-1-3" src="b.jpg">
+            <br>
+            <button onclick="changer('1-3','b');">b</button>
+            <button onclick="changer('1-3','X');">X</button>
+            <button onclick="changer('1-3','O');">O</button>
+        </td>
+        <td>
+            <img id="img-2-3" src="b.jpg">
+            <br>
+            <button onclick="changer('2-3','b');">b</button>
+            <button onclick="changer('2-3','X');">X</button>
+            <button onclick="changer('2-3','O');">O</button>
+        </td>
+        <td>
+            <img id="img-3-3" src="b.jpg">
+            <br>
+            <button onclick="changer('3-3','b');">b</button>
+            <button onclick="changer('3-3','X');">X</button>
+            <button onclick="changer('3-3','O');">O</button>
+        </td>
+    </tr>
+</table>
+
+<p></p>
+Winner: <img id="winner">
+<span id="txtwinner"></span>
+
+<script>
+    function check3(posA,posB,posC) {
+        console.log('check3 0');
+        imgA = document.getElementById("img-"+posA);
+        imgB = document.getElementById("img-"+posB);
+        imgC = document.getElementById("img-"+posC);
+        srcA = imgA.getAttribute("src");
+        srcB = imgB.getAttribute("src");
+        srcC = imgC.getAttribute("src");
+        if ((srcA==srcB) && (srcA==srcC) && (srcA != "b.jpg")) {
+            console.log('check3 res');
+            return srcA;
+        }
+        return "";
+        console.log('check3 end');
+    }
+
+    function winner() {
+        res = "";
+        console.log('winner 1');
+        if (res=="") { res = check3('1-1','2-1','3-1'); }
+        if (res=="") { res = check3('1-2','2-2','3-2'); }
+        if (res=="") { res = check3('1-3','2-3','3-3'); }
+        if (res=="") { res = check3('1-1','1-2','1-3'); }
+        if (res=="") { res = check3('2-1','2-2','2-3'); }
+        if (res=="") { res = check3('3-1','3-2','3-3'); }
+        if (res=="") { res = check3('3-1','2-2','1-3'); }
+        if (res=="") { res = check3('1-1','2-2','3-3'); }
+        console.log('winner 9 '+res);
+        return res;
+    }
+
+    function changer(pos,letter) {
+        img = document.getElementById("img-"+pos);
+        img.setAttribute("src",letter+".jpg");
+
+        imgWinner = document.getElementById("winner");
+        imgWinner.setAttribute ( "src", winner() );
+    }
+</script>

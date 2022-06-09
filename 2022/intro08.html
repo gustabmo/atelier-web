@@ -1,0 +1,71 @@
+<!╌ 
+tous les fichiers intro**.html sont des petites experimentations faites avec les élèves 
+pour expliquer les notions
+╌>
+
+<table border="1">
+  <tr>
+    <td>
+      pos-1-1
+      <br>
+      <button onclick="completer11banane();">
+        Banane
+      </button>
+      <button onclick="completer11pomme();">
+        Pomme
+      </button>
+      <button onclick="completer11poire();">
+        Poire
+      </button>
+      <br>
+      Fruit choisi: <span id="pos-1-1"></span>
+    </td>
+    <td>
+      pos-1-2
+      <br>
+      <button onclick="completer12banane();">
+        Banane
+      </button>
+      <button onclick="completer12pomme();">
+        Pomme
+      </button>
+      <button onclick="completer12poire();">
+        Poire
+      </button>
+      <br>
+      Fruit choisi: <span id="pos-1-2"></span>
+    </td>
+  </tr>
+</table>
+
+<script>
+  function completer11banane() {
+    sp = document.getElementById('pos-1-1');
+    sp.innerHTML = "banane";  
+  }
+
+  function completer11pomme() {
+    sp = document.getElementById('pos-1-1');
+    sp.innerHTML = "pomme";  
+  }
+
+  function completer11poire() {
+    sp = document.getElementById('pos-1-1');
+    sp.innerHTML = "poire";  
+  }
+
+  function completer12banane() {
+    sp = document.getElementById('pos-1-2');
+    sp.innerHTML = "banane";  
+  }
+
+  function completer12pomme() {
+    sp = document.getElementById('pos-1-2');
+    sp.innerHTML = "pomme";  
+  }
+
+  function completer12poire() {
+    sp = document.getElementById('pos-1-2');
+    sp.innerHTML = "poire";  
+  }
+</script>

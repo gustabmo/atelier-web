@@ -1,0 +1,52 @@
+<!╌ 
+une premiere version toute simple
+╌>
+
+<button onclick="jeJoue('papier')">Papier</button>
+<button onclick="jeJoue('caillou')">Caillou</button>
+<button onclick="jeJoue('ciseaux')">Ciseaux</button>
+<p></p>
+Mon choix: <span id="mien"><img id="monimage"></span>
+<p></p>
+Ordinateur: <span id="delordi"><img id="imgordi"></span>
+<p></p>
+Resultat: <span id="resultat"></span>
+
+<script>
+  function choixAleatoire() {
+    r = Math.random();
+    if (r < 0.3333) {
+      return 'papier';
+    } else {
+      if (r < 0.6666) {
+        return 'caillou';
+      } else {
+        return 'ciseaux';
+      }
+    }
+  }
+
+  function jeJoue(choix) {
+    document.getElementById('monimage').setAttribute('src',choix+'.jpg');
+
+    ordi = choixAleatoire();
+    document.getElementById('imgordi').setAttribute('src',ordi+'.jpg')
+
+    if (choix==ordi) {
+      resultat = 'Egalite';
+    } else {
+      if (
+        (choix=='papier' && ordi=='caillou')
+        ||
+        (choix=='caillou' && ordi=='ciseaux')
+        ||
+        (choix=='ciseaux' && ordi=='papier')
+      ) {
+        resultat = 'Moi!';
+      } else {
+        resultat = 'Ordinateur';
+      }
+    }
+    document.getElementById('resultat').innerHTML = resultat;
+  }
+</script>

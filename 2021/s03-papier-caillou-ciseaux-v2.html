@@ -67,8 +67,9 @@ function choixAleatoire() {
 
 function clickChoix(leButton) {
     monChoix = leButton.innerHTML;
-    document.getElementById("monChoix")
-    .setAttribute ( 'src', monChoix+'.jpg' );
+    document.getElementById("monChoix").setAttribute ( 
+        'src', monChoix+'.jpg' 
+    );
 
     choixOrdi = choixAleatoire();
     document.getElementById("ordiChoix")

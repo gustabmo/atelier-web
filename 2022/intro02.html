@@ -1,0 +1,32 @@
+<!╌ 
+tous les fichiers intro**.html sont des petites experimentations faites avec les élèves 
+pour expliquer les notions
+╌>
+
+Mon nom va changer de couleur
+selon le button qu'on appuye: 
+<b>
+<span id="monnom" style="color:black">
+    Gustavo
+</span>
+</b>
+
+<p></p>
+
+<button onclick="changerCouleur('red')">
+    Rouge
+</button>
+<button onclick="changerCouleur('green')">
+    Vert
+</button>
+
+<script>
+    function changerCouleur(nouvelle){
+        document.getElementById('monnom').
+        setAttribute('style','color:'+nouvelle);
+
+        document.getElementById('monnom').
+        innerHTML = "Gustavo en "+nouvelle;
+    }
+</script>
+

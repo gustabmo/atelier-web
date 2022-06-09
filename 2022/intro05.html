@@ -1,0 +1,38 @@
+<!╌ 
+tous les fichiers intro**.html sont des petites experimentations faites avec les élèves 
+pour expliquer les notions
+╌>
+
+Bananes <span id="numBananes"></span>
+<br>
+Oranges <span id="numOranges"></span>
+<br>
+Pommes <span id="numPommes"></span>
+<br>
+
+<p></p>
+
+<button onclick="encoreUneBanane()">Banane</button>
+<button onclick="encoreUneOrange()">Oranges</button>
+<button onclick="encoreUnePomme()">Pomme</button>
+
+<script>
+    bananes = 0;
+    oranges = 0;
+    pommes = 0;
+
+    function encoreUneBanane() {
+        bananes = bananes+1;
+        document.getElementById("numBananes").innerHTML = bananes;
+    }
+
+    function encoreUneOrange() {
+        oranges = oranges+1;
+        document.getElementById("numOranges").innerHTML = oranges;
+    }
+
+    function encoreUnePomme() {
+        pommes = pommes+1;
+        document.getElementById("numPommes").innerHTML = pommes;
+    }
+</script>

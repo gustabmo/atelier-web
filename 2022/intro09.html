@@ -1,0 +1,46 @@
+<!╌ 
+tous les fichiers intro**.html sont des petites experimentations faites avec les élèves 
+pour expliquer les notions
+╌>
+
+<table border="1">
+  <tr>
+    <td>
+      pos-1-1
+      <br>
+      <button onclick="completer('1-1','banane');">
+        Banane
+      </button>
+      <button onclick="completer('1-1','pomme');">
+        Pomme
+      </button>
+      <button onclick="completer('1-1','poire');">
+        Poire
+      </button>
+      <br>
+      Fruit choisi: <span id="pos-1-1"></span>
+    </td>
+    <td>
+      pos-1-2
+      <br>
+      <button onclick="completer('1-2','banane');">
+        Banane
+      </button>
+      <button onclick="completer('1-2','pomme');">
+        Pomme
+      </button>
+      <button onclick="completer('1-2','poire');">
+        Poire
+      </button>
+      <br>
+      Fruit choisi: <span id="pos-1-2"></span>
+    </td>
+  </tr>
+</table>
+
+<script>
+  function completer(pos,fruit) {
+    sp = document.getElementById('pos-'+pos);
+    sp.innerHTML = fruit;  
+  }
+</script>
